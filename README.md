@@ -3,14 +3,12 @@ Coleta de dados usando web scraping com python e django <br>
 no site **https://distrowatch.com/dwres.php?resource=popularity**
 
 # instalação 
-da um git clone **https://github.com/ClebsonFerreira/analise.git** <br> 
-depois cria uma virtualenv  **venv** <br>
-logo apos pip install -r requirements.txt <br>
-cd analise <br>
-python manager.py runserver <br>
-acesse **localhost:8000/app** <br>
-
-#Screenshot
-
+<p>git clone <strong>https://github.com/ClebsonFerreira/analise.git</strong></p>
+<p>virtualenv <strong>venv</strong></p>
+<p><strong>pip install -r requirements.txt</strong></p>
+<p><strong>python manager.py runserver</strong></p>
+<p><strong>http://localhost:8000/app</strong></p>
+<br>
+<p>obs. no gráfico so e mostrado as distros que contém mais de 1000 acesso</p>
 <img src="./screenshot.png">
 
