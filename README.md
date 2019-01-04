@@ -7,7 +7,7 @@ no site **https://distrowatch.com/dwres.php?resource=popularity**
 <p>virtualenv <strong>venv</strong></p>
 <p><strong>pip install -r requirements.txt</strong></p>
 <p><strong>python manager.py runserver</strong></p>
-<p><strong>http://localhost:8000/app</strong></p>
+<p><strong>**http://localhost:8000/app**</strong></p>
 <br>
 <p>obs. no gráfico so e mostrado as distros que contém mais de 1000 acesso</p>
 <img src="./screenshot.png">
