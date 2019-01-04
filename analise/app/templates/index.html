@@ -8,15 +8,18 @@
     </button>
 </div>
 {% endif %}
-<main role="main" class="container text-center">
+<main role="main" class="container">
     <div class="jumbotron">
-        <h1>Coleta de dados do site distrowatch </h1>
-        <p class="lead">Coleta para analise</p>
+        <h1 class="text-center">Coleta de dados do site distrowatch </h1>
+        <p class="lead text-center">Coleta para analise</p>
         <p>Tempo Execução: {{tempoExec}}</p>
+        <p>Site base coleta :<a href="https://distrowatch.com/dwres.php?resource=popularity" target="_blanck">https://distrowatch.com/dwres.php?resource=popularity</a></p>
     </div>
     <div class="container">
         <canvas id="productsChart" width="300" height="100"></canvas>
+        <br><br>
         <canvas id="productsChartline" width="300" height="100"></canvas>
+        <br><br>
         <canvas id="productsCharthorizontalBar" width="300" height="100"></canvas>
 
     </div>
@@ -36,82 +39,68 @@
             datasets: [{
                 label: 'Últimos 12 meses',
                 data: acesso12,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                ],
-                borderWidth: 1
+                backgroundColor: '#ff6384',
+                borderColor:'#ff6384',
+                borderWidth: 1,
+                fill: false,
             }, {
                 label: 'Últimos 6 meses',
                 data: acesso6,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+                backgroundColor: '#36a2eb',
+                borderColor:'#36a2eb',
+                borderWidth: 1,
+                fill: false,
             }, {
                 label: 'Últimos 3 meses',
                 data: acesso3,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+                backgroundColor: '#cc65fe',
+                borderColor:'#cc65fe',
+                borderWidth: 1,
+                fill: false,
             }, {
                 label: 'Últimos 1 meses',
                 data: acesso1,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
+                backgroundColor: '#ffce56',
+                borderColor:'#ffce56',
+                borderWidth: 1,
+                fill: false,
+            }],
         },
         options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Gráfico de Barras'
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
             scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Nomes das distros'
+                    }
+                }],
                 yAxes: [{
-                    ticks: {
-                        beginAtZero: true
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Qtd. acessos'
                     }
                 }]
+            },
+            legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    fontColor: 'black'
+                }
             }
         }
     });
@@ -133,92 +122,69 @@
             datasets: [{
                 label: 'Últimos 12 meses',
                 data: acesso12,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+                backgroundColor: '#ff6384',
+                borderColor:'#ff6384',
+                borderWidth: 2,
+                fill: false,
             }, {
                 label: 'Últimos 6 meses',
                 data: acesso6,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+                backgroundColor: '#36a2eb',
+                borderColor:'#36a2eb',
+                borderWidth: 2,
+                fill: false,
             }, {
                 label: 'Últimos 3 meses',
                 data: acesso3,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+                backgroundColor: '#cc65fe',
+                borderColor:'#cc65fe',
+                borderWidth: 2,
+                fill: false,
             }, {
                 label: 'Últimos 1 meses',
                 data: acesso1,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
+                backgroundColor: '#ffce56',
+                borderColor:'#ffce56',
+                borderWidth: 2,
+                fill: false,
+            }],
+            
         },
         options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Gráfico de linhas'
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
             scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Nomes das distros'
+                    }
+                }],
                 yAxes: [{
-                    ticks: {
-                        beginAtZero: true
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Qtd. acessos'
                     }
                 }]
+            },
+            legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    fontColor: 'black'
+                }
             }
         }
     });
@@ -239,92 +205,69 @@
             datasets: [{
                 label: 'Últimos 12 meses',
                 data: acesso12,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+                backgroundColor: '#ff6384',
+                borderColor:'#ff6384',
+                borderWidth: 1,
+                fill: false,
             }, {
                 label: 'Últimos 6 meses',
                 data: acesso6,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+                backgroundColor: '#36a2eb',
+                borderColor:'#36a2eb',
+                borderWidth: 1,
+                fill: false,
             }, {
                 label: 'Últimos 3 meses',
                 data: acesso3,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+                backgroundColor: '#cc65fe',
+                borderColor:'#cc65fe',
+                borderWidth: 1,
+                fill: false,
             }, {
                 label: 'Últimos 1 meses',
                 data: acesso1,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
+                backgroundColor: '#ffce56',
+                borderColor:'#ffce56',
+                borderWidth: 1,
+                fill: false,
+            }],
         },
         options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Gráfico de Horizontal'
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
             scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Qtd. acessos'
+                        
+                    }
+                }],
                 yAxes: [{
-                    ticks: {
-                        beginAtZero: true
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Nomes das distros'
                     }
                 }]
+            },
+            legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    fontColor: 'black'
+                }
             }
         }
     });
