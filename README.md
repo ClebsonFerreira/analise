@@ -10,3 +10,7 @@ cd analise <br>
 python manager.py runserver <br>
 acesse **localhost:8000/app** <br>
 
+#Screenshot
+
+<img src="./screenshot.png">
+
