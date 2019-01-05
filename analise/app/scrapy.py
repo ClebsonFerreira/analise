@@ -2,7 +2,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+
 
 def conexao():
     html = urlopen("https://distrowatch.com/dwres.php?resource=popularity")
